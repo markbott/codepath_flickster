@@ -18,6 +18,11 @@ public class Movie {
         return String.format("https://image.tmdb.org/t/p/w342/%s", posterPath);
     }
 
+    public String getBackdropPath() {
+        // TODO
+        return String.format("https://image.tmdb.org/t/p/w342/%s", backdropPath);
+    }
+
     public String getOriginalTitle() {
         return originalTitle;
     }
@@ -27,11 +32,13 @@ public class Movie {
     }
 
     private String posterPath;
+    private String backdropPath;
     private String originalTitle;
     private String overview;
 
     public Movie(JSONObject jsonMovie) throws JSONException {
         posterPath = jsonMovie.getString("poster_path");
+        backdropPath = jsonMovie.getString("backdrop_path");
         originalTitle = jsonMovie.getString("original_title");
         overview = jsonMovie.getString("overview");
     }

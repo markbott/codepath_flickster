@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -58,6 +59,7 @@ public class MovieActivity extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 Log.d("movie-api", "failure", throwable);
+                Toast.makeText(MovieActivity.this, "Failed to retrieve movies!", Toast.LENGTH_LONG).show();
                 super.onFailure(statusCode, headers, responseString, throwable);
             }
         });
